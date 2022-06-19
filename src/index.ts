@@ -3,11 +3,13 @@ import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
 
+import { connect } from "./db";
+
 // Initial config
 dotenv.config();
 const PORT: string | undefined = process.env.APP_PORT;
 const HOST: string | undefined = process.env.APP_HOST;
-console.log(process.env.APP_PORT);
+connect();
 
 // add express instance
 const app = express();
