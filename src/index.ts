@@ -1,9 +1,10 @@
-import express from "express";
-import cors from "cors";
-import morgan from "morgan";
-import dotenv from "dotenv";
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import dotenv from 'dotenv';
+import routes from './routes';
 
-import { connect } from "./db";
+import { connect } from './db';
 
 // Initial config
 dotenv.config();
@@ -17,7 +18,8 @@ const app = express();
 // add midlewares
 app.use(express.json());
 app.use(cors());
-app.use(morgan("dev"));
+app.use(morgan('dev'));
+app.use('/', routes);
 
 // start server
 app.listen(PORT, (): void => {
