@@ -1,10 +1,12 @@
-import mongoose from "mongoose";
+/* eslint-disable no-console */
+import mongoose from 'mongoose';
 
+// eslint-disable-next-line import/no-mutable-exports
 export let connection: mongoose.Connection;
 
 const connectionSussessFully = (uri?: string): void => {
   const database: string = connection.db.databaseName;
-  console.group("Connection with mongoose to mongoDB");
+  console.group('Connection with mongoose to mongoDB');
   console.log(`Uri: ${uri}`);
   console.log(`Database: ${database}`);
   console.groupEnd();
@@ -16,9 +18,9 @@ export async function connect(): Promise<void> {
   const db: string | undefined = process.env.DB_DATABASE;
   const mongoUri = `${host}:${port}/${db}`;
 
-  //Se habilitan las variables virtuales
-  mongoose.set("toJSON", { virtuals: true });
-  mongoose.set("toObject", { virtuals: true });
+  // Se habilitan las variables virtuales
+  mongoose.set('toJSON', { virtuals: true });
+  mongoose.set('toObject', { virtuals: true });
 
   if (connection) {
     connectionSussessFully(mongoUri);
@@ -29,12 +31,12 @@ export async function connect(): Promise<void> {
   connection = mongoose.connection;
   connectionSussessFully(mongoUri);
 
-  connection.once("connected", () => {
-    console.log("connection to mongoDB is ok");
+  connection.once('connected', () => {
+    console.log('connection to mongoDB is ok');
   });
 
-  connection.on("error", (error) => {
-    console.log("Something went wrong!", error);
+  connection.on('error', (error) => {
+    console.log('Something went wrong!', error);
   });
 }
 
