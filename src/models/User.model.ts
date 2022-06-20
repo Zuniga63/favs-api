@@ -67,8 +67,9 @@ schema.pre('save', function encryptPassword(next) {
         next();
       });
     });
+  } else {
+    next();
   }
-  next();
 });
 
 export default model<IUser>('User', schema);
