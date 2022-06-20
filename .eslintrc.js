@@ -18,5 +18,25 @@ module.exports = {
   plugins: ['@typescript-eslint', 'import', 'prettier'],
   rules: {
     'prettier/prettier': RULES.ERROR,
+    'import/extensions': [
+      RULES.ERROR,
+      'ignorePackages',
+      {
+        js: 'never',
+        ts: 'never',
+      },
+    ],
+  },
+  /* https://stackoverflow.com/questions/59265981/typescript-eslint-missing-file-extension-ts-import-extensions */
+  settings: {
+    'import/extensions': ['.js', '.ts'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts'],
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.ts'],
+      },
+    },
   },
 };
