@@ -1,4 +1,4 @@
-import { Schema, model, Types } from 'mongoose';
+import { Schema, model, Types, Model } from 'mongoose';
 
 export interface IFavItem {
   favList: Types.ObjectId;
@@ -7,7 +7,7 @@ export interface IFavItem {
   link?: string;
 }
 
-const schema = new Schema<IFavItem>({
+const schema = new Schema<IFavItem, Model<IFavItem>>({
   favList: {
     type: Schema.Types.ObjectId,
     required: true,

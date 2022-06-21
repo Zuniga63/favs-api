@@ -1,18 +1,18 @@
-import { Schema, model, Types, models } from 'mongoose';
+import { Schema, model, Types, models, Model } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 export interface IUser {
   name: string;
   email: string;
   password: string;
-  favs?: Types.ObjectId[];
+  favs: Types.ObjectId[];
 }
 
 const emailRegex = /^[^@]+@[^@]+.[^@]+$/;
 const strongPass =
   /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
 
-const schema = new Schema<IUser>(
+const schema = new Schema<IUser, Model<IUser>>(
   {
     name: {
       type: String,

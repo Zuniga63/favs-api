@@ -3,7 +3,7 @@ import { Schema, model, Types } from 'mongoose';
 export interface IFavList {
   user: Types.ObjectId;
   name: String;
-  items?: Types.ObjectId[];
+  items: Types.ObjectId[];
 }
 
 const schema = new Schema<IFavList>(
