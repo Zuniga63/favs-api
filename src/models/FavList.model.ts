@@ -1,4 +1,5 @@
 import { Schema, model, Types } from 'mongoose';
+import FavItemModel from './FavItem.model';
 
 export interface IFavList {
   user: Types.ObjectId;
@@ -30,5 +31,15 @@ const schema = new Schema<IFavList>(
   },
   { timestamps: true }
 );
+
+schema.pre('findOneAndDelete', async function deleteItems(next) {
+  try {
+    const { _id: favList } = this.getFilter();
+    await FavItemModel.deleteMany({ favList });
+    next();
+  } catch (error: any) {
+    next(error);
+  }
+});
 
 export default model<IFavList>('FavList', schema);
