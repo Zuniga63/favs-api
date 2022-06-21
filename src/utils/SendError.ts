@@ -28,6 +28,11 @@ export default function sendError(error: any, res: Response) {
     return;
   }
 
+  if (error.name === 'NotFoundError') {
+    res.status(404).json({ error });
+    return;
+  }
+
   res.status(500).json({ message: error.message, error });
   // eslint-disable-next-line no-console
   console.log(error);
