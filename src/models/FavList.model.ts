@@ -10,6 +10,7 @@ const schema = new Schema<IFavList>(
   {
     user: {
       type: Schema.Types.ObjectId,
+      ref: 'User',
       required: true,
     },
     name: {
