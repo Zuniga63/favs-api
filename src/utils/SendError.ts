@@ -13,27 +13,16 @@ import { Response } from 'express';
  * 511 Network Authentication Required
  */
 export default function sendError(error: any, res: Response) {
-  if (error.name === 'ValidationError') {
-    res.status(400).json({ error });
-    return;
-  }
+  const ok = false;
+  const { name: errorName, message }: { name: string; message: string } = error;
+  let code: number = 500;
 
-  if (error.name === 'InvalidSignInError') {
-    res.status(400).json({ error });
-    return;
-  }
-
-  if (error.name === 'AuthError') {
-    res.status(401).json({ error });
-    return;
-  }
-
-  if (error.name === 'NotFoundError') {
-    res.status(404).json({ error });
-    return;
-  }
-
-  res.status(500).json({ message: error.message, error });
+  if (errorName === 'ValidationError' || errorName === 'InvalidSignInError') {
+    code = 400;
+  } else if (errorName === 'AuthError') code = 401;
+  else if (errorName === 'NotFoundError') code = 404;
   // eslint-disable-next-line no-console
-  console.log(error);
+  else console.log(error);
+
+  res.status(code).json({ message, ok });
 }
