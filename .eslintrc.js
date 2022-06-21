@@ -18,6 +18,8 @@ module.exports = {
   plugins: ['@typescript-eslint', 'import', 'prettier'],
   rules: {
     'prettier/prettier': RULES.ERROR,
+    'no-underscore-dangle': RULES.OFF,
+    'no-unused-vars': [RULES.ERROR, { argsIgnorePattern: '^_' }],
     'import/extensions': [
       RULES.ERROR,
       'ignorePackages',
