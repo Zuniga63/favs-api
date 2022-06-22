@@ -45,3 +45,20 @@ export async function disconect(): Promise<void> {
 
   await mongoose.disconnect();
 }
+
+export async function cleanup() {
+  const deletes: Promise<any>[] = [];
+  const { collections } = connection;
+
+  // eslint-disable-next-line no-restricted-syntax
+  for (const index in collections) {
+    if (Object.prototype.hasOwnProperty.call(collections, index)) {
+      const collection = collections[index];
+      deletes.push(collection.deleteMany({}));
+    }
+  }
+
+  await Promise.all(deletes);
+}
+
+export default { connect, disconect, cleanup };

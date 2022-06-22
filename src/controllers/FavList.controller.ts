@@ -72,7 +72,7 @@ export async function destroy(req: Request, res: Response): Promise<void> {
     const user = await UserModel.findById(userId);
     if (!user) throw new NotFoundError('Usuario no encontrado.');
     if (!user.favs.some((itemId) => itemId.equals(favListId))) {
-      throw new NotFoundError('Esta lista no pertenece al usuario.');
+      throw new NotFoundError('No se encontró la lista a eliminar.');
     }
 
     const favList = await FavListModel.findByIdAndDelete(favListId);
