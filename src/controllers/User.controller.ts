@@ -12,7 +12,7 @@ export default async function signUp(
   try {
     const user = await UserModel<IUser>.create({ ...req.body });
     const token = createToken(user.id);
-    res.status(201).json({ user, token });
+    res.status(201).json({ token });
   } catch (error: any) {
     sendError(error, res);
   }
