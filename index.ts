@@ -1,4 +1,4 @@
-import app from './app';
+import app from './src/app';
 
 // start server
 app.listen(app.get('port'), (): void => {
