@@ -4,9 +4,9 @@
   "description": "API for organize your favorites thing.",
   "main": "index.js",
   "scripts": {
-    "start": "node build/index.js",
+    "start": "node build",
     "dev": "ts-node-dev src/index.ts",
-    "tsc": "tsc",
+    "build": "tsc",
     "prepare": "husky install",
     "test": "cross-env DB_DATABASE=favs-test jest --detectOpenHandles",
     "test:coverage": "npm test -- --coverage"
