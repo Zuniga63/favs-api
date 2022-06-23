@@ -65,7 +65,7 @@ Run the command `npm start` after last command.
 
 ## API Documentation
 
-Swagger was used for the documentatión and can be seen in the route **http://localhost:8080/docs/**  
+Swagger was used for the documentatión and can be seen in the [documentation](https://favs-api-top22.herokuapp.com/docs/)  
 _alert:_ use the .env port.
 
 ![doc](src/assets/docs/doc.png)
