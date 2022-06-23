@@ -12,7 +12,7 @@ connect();
 
 // add express instance
 const app = express();
-app.set('port', process.env.APP_PORT || '8080');
+app.set('port', process.env.PORT || '8080');
 app.set('host', process.env.APP_HOST || 'http://localhost');
 
 // add midlewares
