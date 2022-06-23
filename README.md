@@ -1,82 +1,83 @@
-# Assesment II
+# Favs API
 
-The objective of this mission is to put into practice what you have learned in the program. The topics that will be covered are: Node.js, express, mongodb, testing.
+This is a favorites list managment project, build using typescript and persited in a non-relational database (MongoDB).
 
-The mission consists of two parts: first you will have to build a RestFul api and then you will have to answer a series of questions. In the mission report you must add the link to the project repository and the answers to the questions.
+---
 
-The deadline for delivery will be Wednesday, Jun 22.
+## Diagram Model
 
-1. Challenge
+![diagram-model](src/assets/docs/model.png)
 
-## FAVS API with JS
+## Technologies
 
-Favs is a new company that aims to provide a better way to organize your favorite things: music, clothes, courses, etc., all in one place.
+|                                                                                            |                                                                                                                     |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://expressjs.com/images/express-facebook-share.png" width="60">             | [**Express**](https://github.com/expressjs/express) for create server.                                              |
+|                                                                                            | [**cors**](https://github.com/expressjs/cors) for communication between servers.                                    |
+| <img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png" width="60"> | [**dotenv**](https://github.com/motdotla/dotenv) to create environment vars in node.                                |
+|                                                                                            | [**morgan**](https://github.com/expressjs/morgan) to identify the requests to the server and seeing in the console. |
+| <img src="https://mongoosejs.com/docs/images/mongoose5_62x30_transparent.png" width="60">  | [**mongoose**](https://mongoosejs.com/) to manage the database.                                                     |
+|                                                                                            | [**bcrypt.js**](https://github.com/dcodeIO/bcrypt.js) for password encryption                                       |
+|                                                                                            | [**jsonwebtoken**](https://github.com/auth0/node-jsonwebtoken) for creating an authentication token.                |
+|                                                                                            | [**Jest**](https://jestjs.io/) for test code.                                                                       |
+|                                                                                            | [**SuperTest**](https://github.com/visionmedia/supertest) to clone the server and test the routes.                  |
+|                                                                                            | [**Swagger UI Express**](https://github.com/scottie1984/swagger-ui-express) to create the documentation interface   |
+|                                                                                            | [**swagger-jsdoc**](https://github.com/Surnet/swagger-jsdoc) to retrive documentatión of routes from code           |
 
-### Current Status
+## Dev Technologies
 
-The CEO of Favs hired you to develop the initial version of his product. It’s worth mentioning that she does not have any technical background.
+|     |                                                                                                                            |
+| --- | -------------------------------------------------------------------------------------------------------------------------- |
+|     | [**TypeScript**](https://www.typescriptlang.org/) for writing TypeScript code                                              |
+|     | [**ts-node-dev**](https://github.com/whitecolor/ts-node-dev) to mount a local server and observe the changes               |
+|     | [**cross-env**](https://github.com/kentcdodds/cross-env) to create the jest sandbox                                        |
+|     | [**ESLint**](https://eslint.org/) to examine the code.                                                                     |
+|     | [**prettier**](https://prettier.io/) to format the code.                                                                   |
+|     | [**husky**](https://github.com/typicode/husky) to ensure that the _eslint_ and _prettier_ rules are applied before commit. |
 
-However, she has a clear vision on how the product should behave, so she provided a list of functional requirements.
+## Requirements
 
-### Requirements
+| Logo                                                                                                                                              | Name                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" width="60">                                                                      | [**Node**](https://nodejs.org/en/) _version 16.x_ o superior |
+| <img src="https://webimages.mongodb.com/_com_assets/cms/kuyjf3vea2hg34taa-horizontal_default_slate_blue.svg?auto=format%252Ccompress" width="60"> | [**MongoDB**](https://www.mongodb.com/)                      |
 
-- Each user will have a unique id, and he will authenticate using a non-empty email and a password.
+## Installation
 
-- Each user will be able to save a list of favs. Each fav will have an title , description and link, and each list will be defined by a unique id and a name.
+1. Clone the repository to your local machine using the terminal `git clone https://github.com/Zuniga63/favs-api.git`
+2. Install dependencies `npm install`
+3. Create the file _.env_ using the command `cp .env.example .env`.
+4. Enter enviroment settings.
 
-- The system have to allow the following actions
+   ![env-config](./src/assets/docs/env-config.png)
 
-  - Create a new list with a given name (auto-generate the unique id)
-  - Get the users lists
-  - Get an individual list for the user
-  - Add items to a given list (based on the generated id)
-    All endpoints have to be secured with Bearer Auth (JWT) `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsTmFtZSI6IkNBTUlMTyB6dWx1YWdhIiwicm9sZSI6InZpZXdlciIsImVtYWlsIjoiaysxQGxvLmNvbSIsImlhdCI6MTY0ODg0Mzc2NCwiZXhwIjoxNjQ4ODUwOTY0fQ.SG40QSQ7IZgvDT98Vr7KMYb2Oxfpy_mfeSHRv3fXZcY`
+### For Dev
 
-- You should ensure that the password is strong enough
+Run the command `npm run dev`;
 
-## What are we looking for?
+### To generate production build
 
-- A well-designed solution and architecture Avoid duplication, extract re-usable code where makes sense. We want to see that you can create an easy-to-maintain codebase.
+Run the command `npm run build`
 
-- Storage We need a MongoDB database implementation.
-  Testing Try to create tests covering the main functionalities of your code. Feel free to create both unit tests and functional tests.
+### To start server in production
 
-- Documentation The CEO has a non-tech background so try to explain your decisions, as well as any other technical requirement (how to run the API, external dependencies, etc ...)
+Run the command `npm start` after last command.
 
-## How to submit your solution
+## API Documentation
 
-- Push your code to the develop branch - we encourage you to commit regularly to show your thinking process was.
+Swagger was used for the documentatión and can be seen in the route **http://localhost:8080/docs/**  
+_alert:_ use the .env port.
 
-- Create a new Pull Request to main branch & merge it.
+![doc](src/assets/docs/doc.png)
 
-Once merged you won't be able to change or add anything to your solution, so double-check that everything is as you expected!
+## Testing
 
-| Route             | HTTP Verb | Middleware        | Description                     |
-| ----------------- | --------- | ----------------- | ------------------------------- |
-| /api/favs         | GET       | isAuthenticated() | Get all list of favorites       |
-| /api/favs         | POST      | isAuthenticated() | Creates a new list of favorites |
-| /api/favs:id      | POST      | isAuthenticated() | Get a single list of favorites  |
-| /api/favs:id      | DELETE    | isAuthenticated() | Deletes a list of favorites     |
-| /auth/local/login | POST      |                   | Login user by email/password    |
+Jest is used to test the code. Tested the code up to about 80%.
 
-### Usage
+![test](src/assets/docs/test-result.png)
 
-The use of endpoints is very simple, previously you could see a table of endpoints that you can call, if you need to create a user or log in, here we have some examples.
+## Password encryption
 
-Authentication user /auth/local/login:
-Request Body:
+It is done on the model [**User**](src/models/User.model.ts) in the lines 54 to 73
 
-```JSON
-json
-{
-"email": "kz@mz.com",
-"password": "12345"
-}
-
-Response:
-json
-{
-"token":
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGFjNjM1MTljZjlkNTQ5YjA3YWU2NTEiLCJpYXQiOjE2MjE5MTMyNjIsImV4cCI6MTYyMTk5OTY2Mn0.WkptwtzkfxNu5sQ28idbt4bJ7RDbXvVNlZXF0Z0ht-0"
-}
-```
+![Encrypt](src/assets/docs/encrypt-password.png);
