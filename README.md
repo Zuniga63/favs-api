@@ -1,79 +1,83 @@
 # Favs API
 
-Este es un proyecto para la administración de listas de favoritos,
-construido utilizando typescript y persistido en una base de datos no relacional (MongoDB).
+This is a favorites list managment project, build using typescript and persited in a non-relational database (MongoDB).
 
 ---
 
-## Tecnologías
+## Diagram Model
 
-|                                                                                            |                                                                                                                         |
-| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| <img src="https://expressjs.com/images/express-facebook-share.png" width="60">             | [**Express**](https://github.com/expressjs/express) para el servidor                                                    |
-|                                                                                            | [**cors**](https://github.com/expressjs/cors) para la comunicación entre servidores                                     |
-| <img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png" width="60"> | [**dotenv**](https://github.com/motdotla/dotenv) para las variables de entorno en node.                                 |
-|                                                                                            | [**morgan**](https://github.com/expressjs/morgan) para identificar las peticiones al servidor y verlas en consola       |
-| <img src="https://mongoosejs.com/docs/images/mongoose5_62x30_transparent.png" width="60">  | [**mongoose**](https://mongoosejs.com/) para administrar la base de datos                                               |
-|                                                                                            | [**bcrypt.js**](https://github.com/dcodeIO/bcrypt.js) para la encriptación de las contraseñas.                          |
-|                                                                                            | [**jsonwebtoken**](https://github.com/auth0/node-jsonwebtoken) para la creación de un token de authenticación           |
-|                                                                                            | [**Jest**](https://jestjs.io/) para testear el codigo.                                                                  |
-|                                                                                            | [**SuperTest**](https://github.com/visionmedia/supertest) para clonar el servidor y hacer pruebas en las rutas.         |
-|                                                                                            | [**Swagger UI Express**](https://github.com/scottie1984/swagger-ui-express) para crear la interfaz de la documentación. |
-|                                                                                            | [**swagger-jsdoc**](https://github.com/Surnet/swagger-jsdoc) para recuperar la documentación de las rutas               |
+![diagram-model](src/assets/docs/model.png)
 
-## Tecnologías para el desarrollo
+## Technologies
 
-|     |                                                                                                                                 |
-| --- | ------------------------------------------------------------------------------------------------------------------------------- |
-|     | [**TypeScript**](https://www.typescriptlang.org/) para la escritura del codigo JavaScript                                       |
-|     | [**ts-node-dev**](https://github.com/whitecolor/ts-node-dev) para montar un servidor local y observar los cambios               |
-|     | [**cross-env**](https://github.com/kentcdodds/cross-env) para crear el entrorno de pruebas de jest                              |
-|     | [**ESLint**](https://eslint.org/) para examinar el coigo                                                                        |
-|     | [**prettier**](https://prettier.io/) para formatear el codigo                                                                   |
-|     | [**husky**](https://github.com/typicode/husky) para garantizar que se apliquen las reglas de _eslint_ y _prettier_ en el codigo |
+|                                                                                            |                                                                                                                     |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://expressjs.com/images/express-facebook-share.png" width="60">             | [**Express**](https://github.com/expressjs/express) for create server.                                              |
+|                                                                                            | [**cors**](https://github.com/expressjs/cors) for communication between servers.                                    |
+| <img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png" width="60"> | [**dotenv**](https://github.com/motdotla/dotenv) to create environment vars in node.                                |
+|                                                                                            | [**morgan**](https://github.com/expressjs/morgan) to identify the requests to the server and seeing in the console. |
+| <img src="https://mongoosejs.com/docs/images/mongoose5_62x30_transparent.png" width="60">  | [**mongoose**](https://mongoosejs.com/) to manage the database.                                                     |
+|                                                                                            | [**bcrypt.js**](https://github.com/dcodeIO/bcrypt.js) for password encryption                                       |
+|                                                                                            | [**jsonwebtoken**](https://github.com/auth0/node-jsonwebtoken) for creating an authentication token.                |
+|                                                                                            | [**Jest**](https://jestjs.io/) for test code.                                                                       |
+|                                                                                            | [**SuperTest**](https://github.com/visionmedia/supertest) to clone the server and test the routes.                  |
+|                                                                                            | [**Swagger UI Express**](https://github.com/scottie1984/swagger-ui-express) to create the documentation interface   |
+|                                                                                            | [**swagger-jsdoc**](https://github.com/Surnet/swagger-jsdoc) to retrive documentatión of routes from code           |
 
-## Requerimientos
+## Dev Technologies
 
-| Logo                                                                                                                                              | Nombre                                                       |
+|     |                                                                                                                            |
+| --- | -------------------------------------------------------------------------------------------------------------------------- |
+|     | [**TypeScript**](https://www.typescriptlang.org/) for writing TypeScript code                                              |
+|     | [**ts-node-dev**](https://github.com/whitecolor/ts-node-dev) to mount a local server and observe the changes               |
+|     | [**cross-env**](https://github.com/kentcdodds/cross-env) to create the jest sandbox                                        |
+|     | [**ESLint**](https://eslint.org/) to examine the code.                                                                     |
+|     | [**prettier**](https://prettier.io/) to format the code.                                                                   |
+|     | [**husky**](https://github.com/typicode/husky) to ensure that the _eslint_ and _prettier_ rules are applied before commit. |
+
+## Requirements
+
+| Logo                                                                                                                                              | Name                                                         |
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" width="60">                                                                      | [**Node**](https://nodejs.org/en/) _version 16.x_ o superior |
 | <img src="https://webimages.mongodb.com/_com_assets/cms/kuyjf3vea2hg34taa-horizontal_default_slate_blue.svg?auto=format%252Ccompress" width="60"> | [**MongoDB**](https://www.mongodb.com/)                      |
 
-## Instalación
+## Installation
 
-1. Clonar el repositorio en su máquina local usando la terminal `git clone https://github.com/Zuniga63/favs-api.git`
-2. Instalar las dependencias `npm install`
-3. Crear el archivo \*_.env_ en .env `cp .env.example .env`
-4. Ingresar las configuración de entorno
+1. Clone the repository to your local machine using the terminal `git clone https://github.com/Zuniga63/favs-api.git`
+2. Install dependencies `npm install`
+3. Create the file _.env_ using the command `cp .env.example .env`.
+4. Enter enviroment settings.
 
    ![env-config](./src/assets/docs/env-config.png)
 
-### Para Desarrollo
+### For Dev
 
-Ejecutar el comando `npm run dev`;
+Run the command `npm run dev`;
 
-### Para generar build de producción
+### To generate production build
 
-Ejecutar el comando `npm run build`
+Run the command `npm run build`
 
-### Para iniciar el servidor en producción
+### To start server in production
 
-Ejecutar el comando `npm start` despues del comando anterior.
+Run the command `npm start` after last command.
 
-## Documentación de la API
+## API Documentation
 
-Para la documentación se utilizó Swagger y se puede ver en la ruta **http://localhost:8080/docs/**
+Swagger was used for the documentatión and can be seen in the route **http://localhost:8080/docs/**  
+_alert:_ use the .env port.
 
 ![doc](src/assets/docs/doc.png)
 
 ## Testing
 
-Para testear el codigo se utilizó Jest y se realizarón unas pruebas hasta alcanzar aproximadamente un 80%
+Jest is used to test the code. Tested the code up to about 80%.
 
 ![test](src/assets/docs/test-result.png)
 
-## Encriptación de la contraseña
+## Password encryption
 
-Se realiza en el modelo [**User**](src/models/User.model.ts) en la linea 54-73
+It is done on the model [**User**](src/models/User.model.ts) in the lines 54 to 73
 
 ![Encrypt](src/assets/docs/encrypt-password.png);
